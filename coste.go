@@ -28,8 +28,15 @@ func makeReservedCommand() {
 		err = worktree.Checkout(&git.CheckoutOptions {
 			Branch: "refs/heads/coste-history",
 		})
-
 		CheckIfError(err)
+
+		/*
+1) FILE COPY TO HISTORY FOLDER
+2) GIT ADD FILE NAME
+3) GIT PUSH FILE NAME
+4) FINISH
+*/
+		
 	}
 
 	Paste := func() {
