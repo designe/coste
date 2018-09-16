@@ -5,33 +5,57 @@ import (
 	"os"
 )
 
-var commands = make(map[string]bool)
+var commands = make(map[string]func())
 
+/*
+Initialize Reserved Commands
+*/
 func makeReservedCommand() {
-	commands["c"] = true
-	commands["-c"] = true
-	commands["copy"] = true
-	commands["--copy"] = true
+	Copy := func() {
+		fmt.Println("Call Copy!")
+	}
 
-	commands["v"] = true
-	commands["-v"] = true
-	commands["paste"] = true
-	commands["--paste"] = true
+	Paste := func() {
+		fmt.Println("Call Paste!")
+	}
 
-	commands["help"] = true
+	Help := func() {
+		fmt.Println("Help!")
+	}
+	commands["c"] = Copy
+	commands["-c"] = Copy
+	commands["copy"] = Copy
+	commands["--copy"] = Copy
+
+	commands["v"] = Paste
+	commands["-v"] = Paste
+	commands["paste"] = Paste
+	commands["--paste"] = Paste
+
+	commands["help"] = Help
 }
 
 func main() {
+	// CHECK Environment Variables : COSTE_HOME
+	if coste_home := os.Getenv("COSTE_HOME"); coste_home == "" {
+		fmt.Println("Environment Variable \"COSTE_HOME\" is not defined.")
+		return
+	} else {
+		fmt.Println("COSTE_HOME = " coste_home)
+	}
+	
 	makeReservedCommand()
 	
 	args := os.Args[1:]
 
 	command := args[0]
 
-	_, presence := commands[command]
+	commandFunc, presence := commands[command]
 
-	if presence == true {
+	if presence {
 		fmt.Println(command + "is present.")
+		commandFunc()
+		
 	} else {
 		fmt.Println(command + "is not present.")
 	}
