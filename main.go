@@ -1,10 +1,10 @@
 
-package gitclip
+package coste
 
 import (
 	"fmt"
 )
 
 func main() {
-	fmt.Println("Hello, gitclip")
+	fmt.Println("Hello, Coste :)")
 }

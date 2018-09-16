@@ -1,4 +1,4 @@
-Package: gitclip
+Package: Coste
 Version: 0.1
 Section: devel
 Priority: optional
@@ -6,4 +6,4 @@ Architecture: all
 Depends: build-essential, git
 Maintainer: Developers <hello.designe@facebook.com>
 Homepage: http://jbear.co
-Description: Clipboard via git
+Description: Coste(COpy & paSTE); Clipboard via git
