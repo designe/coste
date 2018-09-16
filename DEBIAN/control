@@ -1,0 +1,9 @@
+Package: gitclip
+Version: 0.1
+Section: devel
+Priority: optional
+Architecture: all
+Depends: build-essential, git
+Maintainer: Developers <hello.designe@facebook.com>
+Homepage: http://jbear.co
+Description: Clipboard via git
