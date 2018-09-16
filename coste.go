@@ -26,7 +26,7 @@ func makeReservedCommand() {
 		CheckIfError(err)
 
 		err = worktree.Checkout(&git.CheckoutOptions {
-			Branch: "refs/heads/master",
+			Branch: "refs/heads/coste-history",
 		})
 
 		CheckIfError(err)
